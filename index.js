@@ -1,89 +1,114 @@
 //e-Commerce Ferreteria
 
 class herramienta {
-  constructor(id, nombre, stock, precio) {
-    this.id = id;
-    this.nombre = nombre;
-    this.stock = stock;
-    this.precio = precio;
-  }
+    constructor(id, nombre, precio, image) {
+        this.id = id;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.image = image;
+    }
 }
 
 //herramientas
-const herramientas0 = new herramienta(0, "Alicate", 10, 2145);
-const herramientas1 = new herramienta(1, "Tenaza", 10, 2856);
-const herramientas2 = new herramienta(2, "Pelacables", 10, 6047);
-const herramientas3 = new herramienta(3, "Pinza Punta Plana", 10, 2270);
-const herramientas4 = new herramienta(4, "Pico de Loro", 10, 2972);
-const herramientas5 = new herramienta(5, "Llave de Fuerza", 10, 2486);
-const herramientas6 = new herramienta(6, "Arco de Sierra", 10, 4562);
-const herramientas7 = new herramienta(7, "Cutter Reforzado", 10, 1565);
-const herramientas8 = new herramienta(8, "Destornillador Philips", 10, 492);
-const herramientas9 = new herramienta(9, "Llave para Caños", 10, 3877);
+const herramientas0 = new herramienta(0, "Alicate", 2145, "./image/Alicate.jpg");
+const herramientas1 = new herramienta(1, "Tenaza", 2856, "./image/Tenaza.jpg");
+const herramientas2 = new herramienta(2, "Pelacables", 6047, "./image/Pelacable.jpg");
+const herramientas3 = new herramienta(3, "Pinza Punta Plana", 2270, "./image/PinzaPuntaPlana.jpg");
+const herramientas4 = new herramienta(4, "Pico de Loro", 2972, "./image/PicoLoro.jpg");
+const herramientas5 = new herramienta(5, "Llave de Fuerza", 2486, "./image/LlavedeFuerza.jpg");
+const herramientas6 = new herramienta(6, "Arco de Sierra", 4562, "./image/ArcodeSierra.jpg");
+const herramientas7 = new herramienta(7, "Cutter Reforzado", 1565, "./image/CutterReforzado.jpg");
+const herramientas8 = new herramienta(8, "Destornillador Philips", 492, "./image/Destornillador.jpg");
+const herramientas9 = new herramienta(9, "Llave para Caños", 3877, "./image/Llaveparacaños.png");
 
 const herramientas = [
-  herramientas0,
-  herramientas1,
-  herramientas2,
-  herramientas3,
-  herramientas4,
-  herramientas5,
-  herramientas6,
-  herramientas7,
-  herramientas8,
-  herramientas9,
+    herramientas0,
+    herramientas1,
+    herramientas2,
+    herramientas3,
+    herramientas4,
+    herramientas5,
+    herramientas6,
+    herramientas7,
+    herramientas8,
+    herramientas9,
 ];
 
-let productosOfrecidos =
-  "Bienvenido! \nTenemos para ofrecerle las siguientes Herramientas: ";
+const parrafo1 = document.querySelector("#parrafos1");
 
-const carrito = [];
+herramientas.forEach((prodArray) => {
+    parrafo1.innerHTML += `
+             <div class="card divProductos text-center" >
+                 <img src=${prodArray.image} class="card-img-top" alt="Imagen de ${prodArray.nombre}">
+                    <div class="card-body">
+                         <h5 class="card-title">Producto: ${prodArray.nombre}</h5>
+                         <p class="card-text">Precio: $ ${prodArray.precio}</p>
+                         <button class="btn btn-primary" id=${prodArray.id}>Comprar</button>
+                    </div>
+             </div>
+        `;
 
-let productosdeCarrito = `Los productos que seleccionaste son los siguientes: `;
-let precioCarrito = 0;
+});
 
-function infoCarrito() {
-  for (seleccion of carrito) {
-    productosdeCarrito += `\n - ${seleccion.nombre} con un costo de $ ${seleccion.precio}`;
-    precioCarrito += seleccion.precio;
-  }
+const botonComprar = document.querySelectorAll(".btn-primary");
+const compraTotal = document.querySelector("#totalCompra");
+const botonCarrito = document.querySelector("#botonCarrito");
+const contenedorCarrito = document.querySelector("#contenedorCarrito");
+const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
-  alert(
-    `\n${productosdeCarrito} \nEl total de su compra es de $ ${precioCarrito}`
-  );
-}
+botonComprar.forEach(boton => {
+    boton.onclick = () => {
 
-function agreCarrito() {
-  for (articulo of herramientas) {
-    productosOfrecidos += `\n ${articulo.id} - ${articulo.nombre} - ${articulo.precio} `;
-  }
-  productosOfrecidos += `\n Ingrese numero de articulo que desee`;
+        const producto = herramientas.find((producto) => producto.id === parseInt(boton.id));
 
-  let itemIngresado = parseInt(prompt(productosOfrecidos));
+        const productoCarrito = { ...producto, cantidad: 1 }
 
-  if (itemIngresado >= herramientas.length) {
-    alert(`Por favor Ingrese valores entre 0 y ${herramientas.length}`);
-    agreCarrito();
-  } else if (itemIngresado <= herramientas.length) {
-    const producto = herramientas.find(
-      (producto) => producto.id === itemIngresado
-    );
-    carrito.push(producto);
-    let confirmacion = parseInt(
-      prompt(
-        `Se agrego al carrito de compra, el siguiente producto: \n${producto.nombre}, con un importe de $ ${producto.precio}. \nSi desea seguir comprando, digite numero 1, caso contrario 2`
-      )
-    );
+        const indexCarrito = carrito.findIndex(prod => prod.id === productoCarrito.id)
 
-    if (confirmacion == 1) {
-      agreCarrito();
-    } else if (confirmacion === 2) {
-      alert(
-        `Muchas Gracias por su compra. \nA continuacion, se les brindara un detalle de la compra realizada.`
-      );
+        if (indexCarrito === -1) {
+            carrito.push(productoCarrito)
+        } else {
+            carrito[indexCarrito].cantidad++
+        }
+
+        alert(`Se agrego al carrito de compra, el siguiente producto: \n${producto.nombre}, con un importe de $ ${producto.precio}.`)
+
+        localStorage.setItem('carrito', JSON.stringify(carrito))
+        location.reload()
     }
-  }
-}
-agreCarrito();
-infoCarrito();
 
+})
+
+carrito.forEach((productos) => {
+
+    let carritoContent = document.createElement("div")
+    carritoContent.className = "modal-content";
+    carritoContent.innerHTML = `
+            <p> ${productos.cantidad}</p>
+            <p> ${productos.nombre}</p>
+            <p> $ ${productos.precio}</p>
+            
+            `
+    contenedorCarrito.append(carritoContent)
+
+    const total = carrito.reduce((acum, prod) => acum + prod.precio * prod.cantidad, 0)
+
+    compraTotal.innerHTML = `${total}`
+
+})
+
+const vaciarCarrito = document.querySelector("#vaciarCarrito")
+
+vaciarCarrito.onclick = () => {
+    localStorage.clear()
+    location.reload()
+
+}
+
+const botonFinalizarCompra = document.querySelector("#finalizarCompra")
+
+botonFinalizarCompra.onclick = () => {
+    alert("Compra Finalizada. Muchas gracias por elegirnos")
+    localStorage.clear()
+    location.reload()
+}

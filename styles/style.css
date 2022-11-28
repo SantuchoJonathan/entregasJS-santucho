@@ -1,5 +1,68 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
+
+body {
+  background-color: rgba(5, 168, 168, 0.178);
+}
+
+#botonCarrito, .botonCompr{
+  background-color: rgba(1, 1, 250, 0.603);
+  color: white;
+  width: 10rem;
+  border-bottom: 3px solid  rgba(1, 1, 250, 0.842);
+  margin-bottom: 1rem;
+}
+
+.divProductos {
+  width: 18rem;
+  margin: 5px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 10rem;
+}
+
+.card {
+  box-shadow: 0px 5px 15px;
+}
+
+.titleCarrito{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.botonCompra,
+#vaciarCarrito{
+  width: 10rem;
+  border-radius: 5px;
+  background-color: rgba(1, 1, 250, 0.842);
+  color: white;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.botonFinalizarCompra{
+ text-align: center;
+}
+
+.botonFinalizarCompra :hover{
+  all: 100s;
+  transform: scale(1.1, 1.1);
+}
+
+.modal-content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
