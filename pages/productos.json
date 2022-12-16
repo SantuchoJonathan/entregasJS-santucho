@@ -1,0 +1,62 @@
+[
+    {
+        "id": 0,
+        "nombre": "Alicate",
+        "precio": 2145,
+        "image": "./image/Alicate.jpg"
+    },
+    {
+        "id": 1,
+        "nombre": "Tenaza",
+        "precio": 2856,
+        "image": "./image/Tenaza.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Pelacables",
+        "precio": 6047,
+        "image": "./image/Pelacable.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Pinza Punta Plana",
+        "precio": 2270,
+        "image": "./image/PinzaPuntaPlana.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Pico de Loro",
+        "precio": 2972,
+        "image": "./image/PicoLoro.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "Llave de Fuerza",
+        "precio": 2486,
+        "image": "./image/LlavedeFuerza.jpg"
+    },
+    {
+        "id": 6,
+        "nombre": "Arco de Sierra",
+        "precio": 4562,
+        "image": "./image/ArcodeSierra.jpg"
+    },
+    {
+        "id": 7,
+        "nombre": "Cutter Reforzado",
+        "precio": 1565,
+        "image": "./image/CutterReforzado.jpg"
+    },
+    {
+        "id": 8,
+        "nombre": "Destornillador Philips",
+        "precio": 492,
+        "image": "./image/Destornillador.jpg"
+    },
+    {
+        "id": 9,
+        "nombre": "Llave para Caños",
+        "precio": 3877,
+        "image": "./image/Llaveparacaños.png"
+    }
+]

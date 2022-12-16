@@ -5,15 +5,65 @@
 }
 
 body {
-  background-color: rgba(5, 168, 168, 0.178);
+  background-color: rgba(95, 65, 8, 0.178);
 }
 
-#botonCarrito, .botonCompr{
+.headerPrincipal {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+
+.headerCrearUser,
+.headerIniciarUser {
+  margin: 2px 10px;
+  cursor: pointer;
+}
+
+.navbar-brand img {
+  width: 50px;
+}
+
+#botonCarrito,
+.botonCompr {
   background-color: rgba(1, 1, 250, 0.603);
   color: white;
-  width: 10rem;
-  border-bottom: 3px solid  rgba(1, 1, 250, 0.842);
+  width: 12rem;
+  border-bottom: 3px solid rgba(1, 1, 250, 0.842);
   margin-bottom: 1rem;
+  position: relative; 
+}
+
+.logoCarrito {
+  font-size: 23px;
+  position: relative;
+}
+
+#contadorCarrito {
+  background-color: rgb(6, 6, 95);
+  border-radius: 50%;
+  padding: 0px 6px;
+  font-size: 12px;
+  position: absolute;
+  top: 1;
+}
+
+#infoCarrito {
+  position: absolute;
+  bottom: 6;
+  width: 20rem;
+  height: 3rem;
+  text-align: center;
+  padding: 10px 0px;
+  background-color: rgba(6, 2, 218, 0.678);
+  color: rgb(245, 245, 245);
+  margin-top: 5px;
+  border-radius: 5px;
+  z-index: 999;
+  display: none;
+  cursor: none;
 }
 
 .divProductos {
@@ -32,37 +82,117 @@ body {
   box-shadow: 0px 5px 15px;
 }
 
-.titleCarrito{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+#carritoCompras {
+  display: table;
+  height: 100px;
+  border-style: solid black;
+  border-width: 2px;
+  width: 100%;
 }
 
 .botonCompra,
-#vaciarCarrito{
+#vaciarCarrito {
   width: 10rem;
+  height: 2rem;
+  margin-bottom: 5px;
   border-radius: 5px;
+  border: none;
   background-color: rgba(1, 1, 250, 0.842);
   color: white;
 }
 
-a{
+a {
   text-decoration: none;
   color: white;
 }
 
-.botonFinalizarCompra{
- text-align: center;
+.botonFinalizarCompra {
+  text-align: center;
 }
 
-.botonFinalizarCompra :hover{
+.botonFinalizarCompra :hover {
   all: 100s;
   transform: scale(1.1, 1.1);
 }
 
-.modal-content{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+.titleCarrito h4 {
+  padding: 5px;
+  margin: auto 0px;
+  border-bottom: solid 1px gray;
 }
 
+.titleSecundarioCarrito {
+  width: 100%;
+  margin: 10px 0px;
+  display: grid;
+  grid-template-columns: 15% 50% 20% 15%;
+  grid-template-rows: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.modal-content {
+  width: 100%;
+  margin: 5px 0px;
+  display: grid;
+  grid-template-columns: 15% 50% 20% 15%;
+  grid-template-rows: 40px;
+  text-align: center;
+  border: solid black 1px;
+  border-left: none;
+  border-right: none;
+  box-shadow: 0px 1px 10px;
+}
+
+.numero,
+.producto,
+.precio {
+  margin: auto 0px;
+}
+
+.precio {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.fa-solid {
+  position: relative;
+}
+
+.contadorVisual {
+  position: absolute;
+  top: 0;
+  left: 1.3rem;
+  font-size: 0.6em;
+}
+
+.filter img {
+  width: 30rem;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: 0px 5px 15px;
+}
+.filtroTitulo img:hover {
+  cursor: pointer;
+  filter: brightness(0.7);
+}
+
+.filtroTitulo h5 {
+  background-color: rgba(0, 97, 243, 0.596);
+  width: 30rem;
+  margin: auto;
+  padding: 1rem 0rem 1rem 0rem;
+  color: white;
+  border-radius: 0px 0px 10px 10px;
+}
+
+#botonRemove {
+  width: 3cm;
+  margin: 1px;
+}
+
+.footer {
+  background-color: black;
+  color: white;
+  width: 100%;
+}

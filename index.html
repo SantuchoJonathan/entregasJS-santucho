@@ -15,36 +15,116 @@
     <title>JavaScript</title>
   </head>
 
-  <body class="container-fluid">
-    <div id="titulo" class="text-center">
-      <h1>Bienvenido al portal de Compras de Ferreteria</h1>
-      <p>
-        A continuacion puede seleccionar las herramientas que prefiera y
-        agregarla al carrito con la opcion COMPRAR:
-      </p>
-    </div>
-    <div class="botonCompras text-center">
-      <button id="botonCarrito" class="btn" ><a href="#carritoCompras"> Ver Carrito 🛒</a></button>
-    </div>
-    <div id="parrafos1" class="row d-flex justify-content-center"></div>
-
-    <div id="modal-container" class="modal-container"></div>
-
-    <div id="carritoCompras" class="card container-sm my-3" >
-      <div class="titleCarrito">
-        <h5>Carrito de Compra</h5>
-        <button class="boton" id="vaciarCarrito">Vaciar Carrito</button>
+  <body class="w-100">
+    <header>
+      <div class="headerPrincipal">
+        <div class="headerCrearUser">Crear usuario</div>
+        <div class="divisor">|</div>
+        <div class="headerIniciarUser">Iniciar sesion</div>
       </div>
-      <div id="contenedorCarrito"></div>
-      <h3 class="footer-carrito text-center">
-        Total de la compra: $ <span id="totalCompra">0</span>
-      </h3>
-      <div class="botonFinalizarCompra">
-        <button id="finalizarCompra" class="botonCompra">
-          Finalizar Compra
+
+      <nav
+        class="navbar navbar-expand-lg navbar-light text-dark bg-primary fs-5"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"
+            ><img src="./image/logo.png" alt=""
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active text-light"
+                  aria-current="page"
+                  href="#"
+                  >Inicio</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="Buscar"
+                placeholder="Buscar"
+                aria-label="Buscar"
+              />
+              <button class="btn btn-dark" type="submit">Buscar</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div id="titulo" class="text-center">
+        <h1>Bienvenido al portal de Compras de Ferreteria</h1>
+        <p>
+          A continuacion puede seleccionar las herramientas que prefiera y
+          agregarla al carrito con la opcion COMPRAR:
+        </p>
+      </div>
+      <div class="botonCompras text-center">
+        <button id="botonCarrito" class="btn">
+          
+          <a href="#carritoCompras">
+            Ver Carrito
+            <span class="logoCarrito"
+              >🛒<span id="contadorCarrito">0</span></span
+            >
+          </a>
+          <p id="infoCarrito">El carrito se encuentra Vacio</p>
         </button>
       </div>
-    </div>
+
+      <div id="cuerpoProductos" class="row d-flex justify-content-center"></div>
+
+      <div id="modal-container" class="modal-container"></div>
+
+      <div id="carritoCompras" class="card container-sm my-3">
+        <div class="titleCarrito">
+          <h4 class="text-center">Carrito de Compra</h4>
+
+          <div class="titleSecundarioCarrito">
+            <p>CANTIDAD</p>
+            <p>PRODUCTO</p>
+            <p>PRECIO</p>
+            <p>OPCION</p>
+          </div>
+        </div>
+
+        <div id="contenedorCarrito"></div>
+
+        <h3 class="footer-carrito text-center">
+          Total de la compra: $ <span id="totalCompra">0</span>
+        </h3>
+
+        <div class="botonFinalizarCompra">
+          <button class="boton" id="vaciarCarrito">Vaciar Carrito</button>
+          <button id="finalizarCompra" class="botonCompra">
+            Finalizar Compra
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer text-center">Derechos Reservados 2022</div>
+    </footer>
 
     <!-- JavaScript Bundle with Popper -->
     <script
@@ -52,6 +132,7 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./index.js"></script>
   </body>
 </html>
